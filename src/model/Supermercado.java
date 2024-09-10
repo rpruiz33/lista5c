@@ -23,7 +23,7 @@ public Supermercado() {
 public boolean agregaarProducto(String producto, float precio) throws Exception {
 	int i = 0;
 	Producto p = null;
-	while (i < gondola.size()) {
+	while (i < gondola.size()&& p==null) {
 		if (gondola.get(i).getProducto() == producto) {
 			throw new Exception("el producto ya existe");
 		} else {
