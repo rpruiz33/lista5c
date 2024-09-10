@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Supermercado {
@@ -13,9 +14,9 @@ public void setGondola(List<Producto> gondola) {
 	this.gondola = gondola;
 }
 
-public Supermercado(List<Producto> gondola) {
+public Supermercado() {
 	super();
-	this.gondola = gondola;
+	gondola = new ArrayList<Producto>();
 }
 
 
