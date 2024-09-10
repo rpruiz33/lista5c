@@ -1,10 +1,12 @@
 package model;
 
+import java.util.Objects;
+
 public class Producto {
 private int idProducto;
 private String producto;
 private float precio;
-private static int contador=1;
+
 
 public int getIdProducto() {
 	return idProducto;
@@ -25,11 +27,20 @@ public void setPrecio(float precio) {
 	this.precio = precio;
 }
 
-public Producto( String producto, float precio) {
+public Producto( int id ,String producto, float precio) {
 	super();
-	this.idProducto = contador++;
+	this.idProducto = id;
 	this.producto = producto;
 	this.precio = precio;
+}
+
+public boolean equals(Producto p) {
+
+	return p.equals(producto);
+}
+@Override
+public String toString() {
+	return "Producto [idProducto=" + idProducto + ", producto=" + producto + ", precio=" + precio + "]";
 }
 
 

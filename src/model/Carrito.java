@@ -34,7 +34,7 @@ public List<ItemCarrito> getLstItem() {
 public void setLstItem(List<ItemCarrito> lstItem) {
 	this.lstItem = lstItem;
 }
-public Carrito(int idCarrito, LocalDate fecha, LocalTime hora, List<ItemCarrito> lstItem) {
+public Carrito(int idCarrito, LocalDate fecha, LocalTime hora) {
 	super();
 	this.idCarrito = idCarrito;
 	this.fecha = fecha;
@@ -45,11 +45,14 @@ public boolean agregarItem(Producto producto, int cantidad) {
 	int i=0;
 	int id=0;
 	boolean flag=false;
-	ItemCarrito it=null;
-	while(i<lstItem.size()&& lstItem!=null ) {
+
+	while(i<lstItem.size()&& lstItem.get(i)!=null ) {
 		if(lstItem.get(i).getProducto().equals(producto)) {
 			lstItem.get(i).setCantidad(cantidad);
 			flag= true;
+		}
+		else {
+			lstItem.add(lstItem.get(i));
 		}
 		i++;
 	}

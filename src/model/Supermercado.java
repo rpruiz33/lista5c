@@ -21,33 +21,51 @@ public Supermercado() {
 
 
 public boolean agregaarProducto(String producto, float precio) throws Exception {
-	int i = 0;
+
+	int id=0;
 	Producto p = null;
-	while (i < gondola.size()&& p==null) {
-		if (gondola.get(i).getProducto() == producto) {
+	  if (gondola == null) {
+	        throw new Exception("La góndola no está inicializada");
+	    }
+for(int i=0;i<gondola.size();i++) {
+		if (gondola.get(i).getProducto().equals(producto)) {
 			throw new Exception("el producto ya existe");
-		} else {
-			i++;
-		}
+		} 
+		
+			
+		
 	}
-	p = new Producto(producto, precio);
+if (gondola.size()== 0) { 
+	id=1;
+}
+	else {
+		 id=gondola.get(gondola.size() - 1).getIdProducto() + 1;
+
+}
+p = new Producto(id, producto, precio);
 	return gondola.add(p);
 
 }
 
-public Producto traerProducto(int idProducto) throws Exception {
+@Override
+public String toString() {
+	return "Supermercado [gondola=" + gondola + ", getGondola()=" + getGondola() + ", getClass()=" + getClass()
+			+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+}
+
+public Producto traerProducto(int idProducto) {
 	int cont =0;
 	Producto p=null;
-	while(cont<gondola.size()  ) {
+	while(cont<gondola.size() && p==null ) {
 		if(gondola.get(cont).getIdProducto()==idProducto) {
-			throw new Exception("el producto ya existe");
-		}
-		else {
-			cont++;	
-		}
+			p=gondola.get(cont);
 		}
 	
-	p=gondola.get(cont);
+			 cont++;
+		
+
+	}
+
 	return p;
 }
 public boolean modificarProducto(int idProducto, String producto,double precio) throws Exception {
