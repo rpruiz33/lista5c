@@ -26,7 +26,7 @@ public void setCantidad(int cantidad) {
 
 public ItemCarrito(int idItem, Producto producto, int cantidad) {
 	super();
-	IdItem = idItem;
+	this.IdItem = idItem;
 	this.producto = producto;
 	this.cantidad = cantidad;
 }
