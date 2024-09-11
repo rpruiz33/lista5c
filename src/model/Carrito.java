@@ -42,42 +42,61 @@ public Carrito(int idCarrito, LocalDate fecha, LocalTime hora) {
 	this.lstItem = new ArrayList <ItemCarrito>();
 }
 public boolean agregarItem(Producto producto, int cantidad) {
-	int i=0;
-	int id=0;
-	boolean flag=false;
+    boolean flag = false;
 
-	while(i<lstItem.size()&& lstItem.get(i)!=null ) {
-		if(lstItem.get(i).getProducto().equals(producto)) {
-			lstItem.get(i).setCantidad(cantidad);
-			flag= true;
-		}
-		else {
-			lstItem.add(lstItem.get(i));
-		}
-		i++;
-	}
-	return flag;
+    // Recorremos la lista de items para ver si el producto ya está en el carrito
+    for (int i = 0; i < lstItem.size(); i++) {
+        if (lstItem.get(i).getProducto().equals(producto)) {
+            // Si ya existe, actualizamos la cantidad
+            lstItem.get(i).setCantidad(lstItem.get(i).getCantidad() + cantidad);
+            flag = true;
+            break;
+        }
+    }
+
+    // Si no se encontró el producto, agregamos un nuevo item al carrito
+    if (!flag) {
+        lstItem.add(new ItemCarrito(1, producto, cantidad));  // Puedes modificar el ID según sea necesario
+        flag = true;
+    }
+
+    return flag;
 }
 
-public boolean eliminarItem(Producto producto, int cantidad)throws Exception  {
-	int i=0;
-	int id=0;
-	boolean flag=false;
-	
-	while(i<lstItem.size()&& lstItem!=null ) {
-		if(lstItem.get(i).getProducto().equals(producto) && lstItem.get(i).getCantidad()==cantidad) {
-			lstItem.remove(lstItem.get(i));
-			flag=true;
-		}
-		if(lstItem.get(i).getProducto().equals(producto) && lstItem.get(i).getCantidad()>cantidad) {
-			lstItem.get(i).setCantidad(lstItem.get(i).getCantidad()-cantidad);
-		}
-		if(lstItem.get(i).getProducto().equals(producto)) {
-			throw new Exception("el producto no ya existe");	
-		}
-		i++;			
-		}
-		return flag;
-	
+public ItemCarrito traerItemCarrito(Producto i2) {
+    ItemCarrito p = null;
+
+    // Recorremos la lista buscando el producto
+    for (int i = 0; i < lstItem.size(); i++) {
+        if (lstItem.get(i).getProducto().equals(i2)) {
+            p = lstItem.get(i);
+            break;
+        }
+    }
+
+    return p;  // Retornamos el item encontrado o null si no existe
+}
+
+public boolean eliminarItem(Producto i2, int cantidad) throws Exception {
+    boolean flag = false;
+    ItemCarrito it = traerItemCarrito(i2);
+
+    if (it == null) {
+        throw new Exception("El producto no existe en el carrito");
+    }
+
+    // Si la cantidad es mayor a la cantidad que se desea eliminar, reducimos la cantidad
+    if (it.getCantidad() > cantidad) {
+        it.setCantidad(it.getCantidad() - cantidad);
+        System.out.println(it.getCantidad());
+        flag = true;
+    }
+    // Si la cantidad es igual a la cantidad actual, eliminamos el item del carrito
+    else if (it.getCantidad() == cantidad) {
+        lstItem.remove(it);
+        flag = true;
+    }
+
+    return flag;
 }
 }

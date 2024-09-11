@@ -36,7 +36,7 @@ public Producto( int id ,String producto, float precio) {
 
 public boolean equals(Producto p) {
 
-	return p.equals(producto);
+	return this.producto.equals(p.getProducto())&& this.idProducto== p.getIdProducto();
 }
 @Override
 public String toString() {

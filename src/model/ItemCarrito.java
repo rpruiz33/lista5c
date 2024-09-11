@@ -30,6 +30,10 @@ public ItemCarrito(int idItem, Producto producto, int cantidad) {
 	this.producto = producto;
 	this.cantidad = cantidad;
 }
+@Override
+public String toString() {
+	return "ItemCarrito [IdItem=" + IdItem + ", producto=" + producto + ", cantidad=" + cantidad + "]";
+}
 
 
 
