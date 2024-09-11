@@ -30,8 +30,15 @@ public class Test {
 			System.out.println("Excepcion: " + e.getMessage());
 		}	
 		
-		System.out.println(s.traerProducto(2));
-		
+		System.out.println(s.traerProducto(66));
+		try {
+			
+			System.out.println(s.eliminarProducto(1));
+			System.out.println(s.eliminarProducto(1));
+		}
+			catch(Exception e) {
+				System.out.println("Excepcion: " + e.getMessage());
+			}	
 
 		}
 	

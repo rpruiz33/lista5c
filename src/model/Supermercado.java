@@ -82,8 +82,11 @@ public boolean modificarProducto(int idProducto, String producto,double precio) 
 public boolean eliminarProducto(int idProducto)throws Exception {
 	Producto p=null;
 	boolean flag=false;
+	
 	p=traerProducto(idProducto);
-
+	if(p==null) {
+	throw new Exception("el producto ya no existe");
+	}
 	if(p!=null) {
 		gondola.remove(p);
 		flag=true;
