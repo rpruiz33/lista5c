@@ -72,7 +72,7 @@ public boolean eliminarItem(Producto producto, int cantidad)throws Exception  {
 		if(lstItem.get(i).getProducto().equals(producto) && lstItem.get(i).getCantidad()>cantidad) {
 			lstItem.get(i).setCantidad(lstItem.get(i).getCantidad()-cantidad);
 		}
-		if(!lstItem.get(i).getProducto().equals(producto)) {
+		if(lstItem.get(i).getProducto().equals(producto)) {
 			throw new Exception("el producto no ya existe");	
 		}
 		i++;			

@@ -23,17 +23,22 @@ public class Test {
 
 		try {
 			System.out.println(s.agregaarProducto("yerba", 3));
-		System.out.println(s.agregaarProducto("fideos", 3));
-	
-				}
+			System.out.println(s.agregaarProducto("fideos", 3));
+			}
 		catch(Exception e) {
-			System.out.println("Excepcion: " + e.getMessage());
-		}	
+				System.out.println("Excepcion: " + e.getMessage());
+			}	
+			System.out.println(s.traerProducto(2));
 		
-		System.out.println(s.traerProducto(2));
-		
-
+			try {
+				System.out.println((2));
+				System.out.println(s.eliminarProducto(2));
+				System.out.println(s.eliminarProducto(2));
+			}catch(Exception e) {
+				System.out.println("Excepcion: " + e.getMessage());
+	
 		}
 	
 
+}
 }
