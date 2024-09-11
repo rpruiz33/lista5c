@@ -34,7 +34,9 @@ public ItemCarrito(int idItem, Producto producto, int cantidad) {
 public String toString() {
 	return "ItemCarrito [IdItem=" + IdItem + ", producto=" + producto + ", cantidad=" + cantidad + "]";
 }
-
+public boolean equals(ItemCarrito i) {
+	return i.getIdItem()==this.IdItem && i.getCantidad()==this.cantidad&& i.getProducto().equals(producto);
+}
 
 
 }
