@@ -34,7 +34,7 @@ public class Test {
 		try {
 			
 			System.out.println(s.eliminarProducto(1));
-			System.out.println(s.eliminarProducto(1));
+			System.out.println(s.eliminarProducto(2));
 		}
 			catch(Exception e) {
 				System.out.println("Excepcion: " + e.getMessage());
