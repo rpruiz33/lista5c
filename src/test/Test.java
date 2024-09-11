@@ -17,8 +17,8 @@ public class Test {
 		Producto p=new Producto(1, "cafe", 23.2f) ;
 		 ItemCarrito i= new ItemCarrito(1, p, 22);
 		 Carrito c =new Carrito(1, LocalDate.of(2222, 02, 02), LocalTime.of(12,12));
-		/*System.out.println( c.agregarItem(p, 1));
-		System.out.println( c.agregarItem(p, 1))*/;
+		System.out.println( c.agregarItem(p, 1));
+		System.out.println( c.agregarItem(p, 1));
 
 
 		try {
@@ -29,7 +29,7 @@ public class Test {
 				System.out.println("Excepcion: " + e.getMessage());
 			}	
 			System.out.println(s.traerProducto(2));
-		
+
 			try {
 				System.out.println((2));
 				System.out.println(s.eliminarProducto(2));
@@ -37,6 +37,17 @@ public class Test {
 			}catch(Exception e) {
 				System.out.println("Excepcion: " + e.getMessage());
 	
+		System.out.println(s.traerProducto(66));
+		try {
+			
+			System.out.println(s.eliminarProducto(1));
+			System.out.println(s.eliminarProducto(2));
+		}
+			catch(Exception e1) {
+				System.out.println("Excepcion: " + e1.getMessage());
+			}	
+
+
 		}
 	
 
