@@ -1,0 +1,3 @@
+INDEX VERSION 1.134+C:\Users\Beto\Desktop\OO1 2024\lista5c\.metadata\.plugins\org.eclipse.jdt.core
+2216483423.index
+808514819.index
